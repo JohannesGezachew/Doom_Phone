@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DoomBlocker | The Anti-Smartphone</title>
+    <meta name="description" content="A phone built for focus. No feeds, no addictions. Just tools." />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Inter"', 'sans-serif'],
+              heading: ['"Manrope"', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              slate: {
+                950: '#050505', // Deep Obsidian
+                900: '#0F0F10',
+                850: '#151516',
+                800: '#1C1C1E',
+                50: '#F5F5F7',
+              },
+              accent: {
+                primary: '#FF4D00', // International Orange
+                danger: '#FF3B30',  // Warning Red
+                warning: '#FFCC00', // Alert Yellow
+                blue: '#0071E3',
+                surface: '#FFFFFF',
+              }
+            },
+            boxShadow: {
+              'soft': '0 20px 40px -12px rgba(0, 0, 0, 0.04)',
+              'hard': '0 2px 0 rgba(0,0,0,0.05)',
+              'glow': '0 0 80px -20px rgba(0,0,0,0.1)',
+              'inner-light': 'inset 0 1px 0 rgba(255,255,255,0.1)',
+              'bezel': '0 0 0 1px rgba(0,0,0,0.1), 0 20px 50px -10px rgba(0,0,0,0.4)',
+              'depth': '0 1px 2px rgba(0,0,0,0.05), 0 4px 8px rgba(0,0,0,0.05), 0 8px 16px rgba(0,0,0,0.05)',
+            },
+            letterSpacing: {
+              tighter: '-0.04em',
+              tight: '-0.02em',
+              normal: '-0.01em',
+            },
+            transitionTimingFunction: {
+              'luxury': 'cubic-bezier(0.25, 0.1, 0.25, 1.0)',
+              'spring': 'cubic-bezier(0.16, 1, 0.3, 1)',
+              'bounce': 'cubic-bezier(0.34, 1.56, 0.64, 1)',
+            },
+            animation: {
+              'float': 'float 8s ease-in-out infinite',
+              'fade-up': 'fadeUp 1.2s cubic-bezier(0.25, 0.1, 0.25, 1.0) forwards',
+              'reveal': 'reveal 1.5s cubic-bezier(0.25, 0.1, 0.25, 1.0) forwards',
+              'shimmer': 'shimmer 8s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            },
+            keyframes: {
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-15px)' },
+              },
+              fadeUp: {
+                '0%': { opacity: '0', transform: 'translateY(30px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              reveal: {
+                '0%': { opacity: '0', transform: 'scale(0.98) translateY(20px)' },
+                '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+              },
+              shimmer: {
+                '0%, 100%': { backgroundPosition: '200% 0' },
+                '50%': { backgroundPosition: '-200% 0' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html.lenis {
+        height: auto;
+      }
+      
+      .lenis.lenis-smooth {
+        scroll-behavior: auto;
+      }
+      
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+      
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+
+      body {
+        background-color: #FBFBFD;
+        color: #1D1D1F;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: "cv05", "cv11", "ss01";
+        touch-action: manipulation;
+      }
+      
+      .noise-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.035; 
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay;
+      }
+
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+      }
+      
+      .reveal-on-scroll {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+        transition: opacity 1.4s cubic-bezier(0.25, 0.1, 0.25, 1.0), transform 1.4s cubic-bezier(0.25, 0.1, 0.25, 1.0);
+        will-change: opacity, transform;
+      }
+
+      .reveal-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      .holographic-sheen {
+        background: linear-gradient(
+          115deg, 
+          transparent 0%, 
+          transparent 40%, 
+          rgba(255, 255, 255, 0.4) 45%, 
+          rgba(255, 255, 255, 0.7) 50%, 
+          rgba(255, 255, 255, 0.4) 55%, 
+          transparent 60%, 
+          transparent 100%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 6s infinite linear;
+      }
+
+      /* Hide Scrollbar */
+      ::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+      }
+
+      /* Tactile Button Physics */
+      .btn-press {
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.2s;
+      }
+      .btn-press:hover {
+        transform: translateY(-2px) scale(1.01);
+      }
+      .btn-press:active {
+        transform: scale(0.96) translateY(1px);
+      }
+      
+      /* Hover Card Lift */
+      .hover-lift {
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .hover-lift:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div class="noise-overlay"></div>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
