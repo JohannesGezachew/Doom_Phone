@@ -79,12 +79,21 @@ const Hero = () => {
                 Protect Your Kid
               </button>
               <div className="flex items-center gap-2 px-6 py-3">
-                 <div className="flex -space-x-2">
-                    {[1,2,3].map(i => (
-                        <div key={i} className="w-8 h-8 rounded-full bg-slate-200 border-2 border-white"></div>
+                 <div className="flex -space-x-3">
+                    {[
+                        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=64&h=64",
+                        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=64&h=64",
+                        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=64&h=64"
+                    ].map((src, i) => (
+                        <img 
+                            key={i} 
+                            src={src} 
+                            alt={`Parent ${i+1}`}
+                            className="w-9 h-9 rounded-full border-2 border-white object-cover shadow-sm hover:scale-110 hover:z-10 transition-transform duration-300"
+                        />
                     ))}
                  </div>
-                 <span className="text-sm font-bold text-slate-600">Trusted by 10,000+ Parents</span>
+                 <span className="text-sm font-bold text-slate-600 pl-2">Trusted by 10,000+ Parents</span>
               </div>
             </div>
         </div>
@@ -277,7 +286,7 @@ const Hero = () => {
                                  <div className="relative z-10">
                                      <div className="w-16 h-16 bg-accent-danger/10 rounded-full flex items-center justify-center mx-auto mb-5 border border-accent-danger/20 animate-pulse-slow relative overflow-hidden">
                                          {/* TikTok Logo Watermark inside blocked icon */}
-                                         <svg viewBox="0 0 24 24" fill="currentColor" className="absolute w-10 h-10 text-accent-danger/20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                                         <svg viewBox="0 0 24 24" fill="currentColor" className="absolute w-10 h-10 text-accent-danger/60 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
                                             <path d="M16.6 5.82C15.55 5.82 14.56 5.43 13.8 4.78V1.9H11.9V14.74C11.9 16.3 10.63 17.57 9.07 17.57C7.5 17.57 6.23 16.3 6.23 14.74C6.23 13.17 7.5 11.9 9.07 11.9C9.32 11.9 9.56 11.94 9.79 12V9.13C9.56 9.1 9.32 9.09 9.07 9.09C5.95 9.09 3.42 11.62 3.42 14.74C3.42 17.86 5.95 20.39 9.07 20.39C12.19 20.39 14.72 17.86 14.72 14.74V8.58C16.03 9.52 17.63 9.87 19.16 9.51V6.69C18.25 6.75 17.38 6.43 16.6 5.82Z" />
                                         </svg>
                                          <Ban className="w-8 h-8 text-accent-danger relative z-10" />
