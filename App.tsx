@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Marquee from './components/Marquee';
@@ -8,12 +8,10 @@ import AgeProgression from './components/AgeProgression';
 import Testimonials from './components/Testimonials';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
-import Preloader from './components/Preloader';
 
 declare const Lenis: any;
 
 export default function App() {
-  const [loading, setLoading] = useState(true);
 
   // Initialize Lenis Smooth Scroll
   useEffect(() => {
@@ -58,13 +56,11 @@ export default function App() {
     }, 100);
 
     return () => observer.disconnect();
-  }, [loading]);
+  }, []);
 
   return (
     <>
-      <Preloader onComplete={() => setLoading(false)} />
-      
-      <div className={`min-h-screen font-sans text-slate-900 selection:bg-accent-primary selection:text-white transition-opacity duration-1000 ${loading ? 'opacity-0' : 'opacity-100'}`}>
+      <div className="min-h-screen font-sans text-slate-900 selection:bg-accent-primary selection:text-white">
         <Navbar />
         <main className="pt-24 pb-0">
           <Hero />
