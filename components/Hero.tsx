@@ -150,7 +150,7 @@ const Hero = () => {
                         
                         {/* Dynamic Island / Camera Housing (ULTRA REALISTIC) */}
                         <div className="absolute top-5 left-1/2 transform -translate-x-1/2 z-50">
-                             <div className="h-[36px] bg-black rounded-full flex items-center justify-between px-3.5 shadow-[0_0_0_1px_rgba(255,255,255,0.05)] min-w-[124px] relative overflow-hidden">
+                             <div className="h-[36px] bg-black rounded-full flex items-center justify-between px-3.5 shadow-[0_1px_2px_rgba(0,0,0,1),inset_0_0_0_1px_rgba(255,255,255,0.1)] min-w-[124px] relative overflow-hidden group/island">
                                   
                                   {/* Glass Gloss Overlay (Simulates continuous glass surface) */}
                                   <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent pointer-events-none opacity-20"></div>
@@ -182,13 +182,17 @@ const Hero = () => {
                             style={{
                                 background: `linear-gradient(${150 + rotate.y * 3}deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 50%, rgba(255,255,255,0) 100%)`,
                             }}
-                            className="absolute inset-0 pointer-events-none z-50 rounded-[48px]"
+                            className="absolute inset-0 pointer-events-none z-50 rounded-[48px] mix-blend-soft-light"
                         ></div>
 
                         {/* Status Bar - Pixel Perfect iOS */}
                         <div className="absolute top-5 left-7 right-7 h-[36px] flex justify-between items-center z-40 text-white pointer-events-none">
-                            {/* Time - Pushed to the far left "ear" */}
-                            <span className="text-[15px] font-semibold tracking-[-0.02em] font-sans pl-1 drop-shadow-md whitespace-nowrap">9:41</span>
+                            {/* Time & Location - Pushed to the far left "ear" */}
+                            <div className="flex items-center gap-1 pl-1">
+                                <span className="text-[15px] font-semibold tracking-[-0.02em] font-sans drop-shadow-md whitespace-nowrap">9:41</span>
+                                {/* Location Arrow (GPS Always On) */}
+                                <svg className="w-3 h-3 text-white/90 drop-shadow-md ml-0.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/></svg>
+                            </div>
                             
                             {/* Icons - Pushed to the far right "ear" */}
                             <div className="flex gap-[6px] items-center drop-shadow-md flex-shrink-0">
@@ -200,10 +204,10 @@ const Hero = () => {
                                      <div className="w-[3.2px] h-[10.5px] bg-white rounded-[1px]"></div>
                                  </div>
                                  
-                                 {/* Realistic Battery */}
-                                 <div className="w-[25px] h-[12px] rounded-[3.5px] border-[1.3px] border-white/40 p-[1.5px] relative ml-1">
-                                    <div className="h-full w-full bg-white rounded-[1.5px]"></div>
-                                    <div className="absolute -right-[3px] top-1/2 -translate-y-1/2 w-[1.5px] h-[4px] bg-white/40 rounded-r-[1px]"></div>
+                                 {/* Realistic Battery (60% Charge) - Refined Border */}
+                                 <div className="w-[25px] h-[12px] rounded-[3.5px] border-[1px] border-white/60 p-[1.5px] relative ml-1">
+                                    <div className="h-full w-[60%] bg-white rounded-[1.5px]"></div>
+                                    <div className="absolute -right-[3px] top-1/2 -translate-y-1/2 w-[1.5px] h-[4px] bg-white/60 rounded-r-[1px]"></div>
                                  </div>
                             </div>
                         </div>
@@ -213,12 +217,12 @@ const Hero = () => {
                             
                             {/* BLOCKED CONTEXT: Realistic TikTok Interface Background */}
                             <div className="absolute inset-0 z-0 select-none pointer-events-none overflow-hidden">
-                                {/* Base Image: High Energy Concert/Viral Content */}
+                                {/* Base Image: High Energy Video Feed */}
                                 <div 
-                                    className="absolute inset-0 bg-cover bg-center scale-110 opacity-60"
+                                    className="absolute inset-0 bg-cover bg-center scale-110 opacity-70"
                                     style={{ 
-                                        backgroundImage: 'url("https://images.unsplash.com/photo-1493225255756-d9584f8606e9?q=80&w=1000&auto=format&fit=crop")',
-                                        filter: 'blur(12px) brightness(0.7)'
+                                        backgroundImage: 'url("https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=1000&auto=format&fit=crop")',
+                                        filter: 'blur(10px) brightness(0.6)'
                                     }}
                                 ></div>
                                 
@@ -226,53 +230,53 @@ const Hero = () => {
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/30"></div>
 
                                 {/* Ghost UI: Right Side Icons (Specific TikTok Layout) */}
-                                <div className="absolute right-4 bottom-24 flex flex-col gap-5 items-center opacity-40">
+                                <div className="absolute right-4 bottom-24 flex flex-col gap-5 items-center opacity-50">
                                      {/* Profile */}
-                                     <div className="w-11 h-11 rounded-full border border-white/50 bg-white/10 relative flex items-center justify-center">
+                                     <div className="w-11 h-11 rounded-full border border-white/50 bg-white/10 relative flex items-center justify-center shadow-lg">
                                         <div className="w-10 h-10 rounded-full bg-slate-200"></div>
-                                        <div className="absolute -bottom-1 w-4 h-4 bg-accent-danger rounded-full flex items-center justify-center text-[10px] text-white font-bold shadow-sm">+</div>
+                                        <div className="absolute -bottom-1 w-4 h-4 bg-accent-danger rounded-full flex items-center justify-center text-[10px] text-white font-bold shadow-sm border border-white/20">+</div>
                                      </div>
                                      
                                      {/* Like (Heart) */}
-                                     <div className="flex flex-col gap-1 items-center">
-                                         <svg className="w-8 h-8 text-white fill-current drop-shadow-md" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                                         <span className="text-[11px] font-bold text-white drop-shadow-sm">824K</span>
+                                     <div className="flex flex-col gap-1 items-center text-white">
+                                         <svg className="w-8 h-8 fill-current drop-shadow-lg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                                         <span className="text-[11px] font-bold drop-shadow-sm">824K</span>
                                      </div>
                                      
                                      {/* Comment */}
-                                     <div className="flex flex-col gap-1 items-center">
-                                         <div className="w-8 h-8 rounded-full bg-white/20 p-1.5 flex items-center justify-center drop-shadow-md">
-                                             <div className="w-5 h-5 bg-white rounded-sm"></div>
+                                     <div className="flex flex-col gap-1 items-center text-white">
+                                         <div className="w-8 h-8 rounded-full bg-white/20 p-1.5 flex items-center justify-center drop-shadow-lg backdrop-blur-sm">
+                                             <div className="w-5 h-5 bg-white rounded-sm shadow-sm"></div>
                                          </div>
-                                         <span className="text-[11px] font-bold text-white drop-shadow-sm">12.5K</span>
+                                         <span className="text-[11px] font-bold drop-shadow-sm">12.5K</span>
                                      </div>
 
                                      {/* Bookmark */}
-                                     <div className="flex flex-col gap-1 items-center">
-                                         <svg className="w-8 h-8 text-white fill-current drop-shadow-md" viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
-                                         <span className="text-[11px] font-bold text-white drop-shadow-sm">42K</span>
+                                     <div className="flex flex-col gap-1 items-center text-white">
+                                         <svg className="w-8 h-8 fill-current drop-shadow-lg" viewBox="0 0 24 24"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>
+                                         <span className="text-[11px] font-bold drop-shadow-sm">42K</span>
                                      </div>
 
                                      {/* Share */}
-                                     <div className="flex flex-col gap-1 items-center">
-                                         <svg className="w-8 h-8 text-white fill-current drop-shadow-md" viewBox="0 0 24 24"><path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z"/></svg>
-                                         <span className="text-[11px] font-bold text-white drop-shadow-sm">Share</span>
+                                     <div className="flex flex-col gap-1 items-center text-white">
+                                         <svg className="w-8 h-8 fill-current drop-shadow-lg" viewBox="0 0 24 24"><path d="M10 9V5l7 7-7 7v-4.1c-5 0-8.5 1.6-11 5.1 1-5 4-10 11-11z"/></svg>
+                                         <span className="text-[11px] font-bold drop-shadow-sm">Share</span>
                                      </div>
 
                                      {/* Music Disc */}
-                                     <div className="mt-2 w-10 h-10 rounded-full bg-[#1a1a1a] border-2 border-[#2a2a2a] flex items-center justify-center animate-[spin_8s_linear_infinite]">
+                                     <div className="mt-2 w-10 h-10 rounded-full bg-[#1a1a1a] border-2 border-[#2a2a2a] flex items-center justify-center animate-[spin_8s_linear_infinite] shadow-lg">
                                          <div className="w-6 h-6 rounded-full bg-cover bg-center" style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1516035069371-29a1b244cc32?q=80&w=200")' }}></div>
                                      </div>
                                 </div>
 
                                 {/* Ghost UI: Bottom Caption */}
-                                <div className="absolute left-4 bottom-8 flex flex-col gap-2 opacity-50 max-w-[200px]">
-                                    <div className="w-24 h-4 bg-white/80 rounded-md mb-1 drop-shadow-sm"></div>
-                                    <div className="w-48 h-3 bg-white/50 rounded-sm drop-shadow-sm"></div>
-                                    <div className="w-32 h-3 bg-white/50 rounded-sm drop-shadow-sm"></div>
+                                <div className="absolute left-4 bottom-8 flex flex-col gap-2 opacity-60 max-w-[200px]">
+                                    <div className="w-24 h-4 bg-white/90 rounded-md mb-1 drop-shadow-sm"></div>
+                                    <div className="w-48 h-3 bg-white/60 rounded-sm drop-shadow-sm"></div>
+                                    <div className="w-32 h-3 bg-white/60 rounded-sm drop-shadow-sm"></div>
                                     <div className="flex items-center gap-2 mt-2">
                                         <svg className="w-3 h-3 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
-                                        <div className="w-20 h-2 bg-white/50 rounded-full"></div>
+                                        <div className="w-20 h-2 bg-white/60 rounded-full"></div>
                                     </div>
                                 </div>
                             </div>

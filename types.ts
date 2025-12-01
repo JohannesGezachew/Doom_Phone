@@ -7,6 +7,7 @@ export interface PricingTier {
   color: string;
   cta: string;
   popular?: boolean;
+  stripePriceId?: string; // ID from Stripe Dashboard (e.g., price_1N...)
 }
 
 export interface Feature {

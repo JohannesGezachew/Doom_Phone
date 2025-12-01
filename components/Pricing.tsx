@@ -9,7 +9,8 @@ const tiers: PricingTier[] = [
         price: "$25", 
         features: ["Unlimited Talk & Text", "Nationwide Coverage", "Cancel Anytime", "Bring Your Own Device"], 
         color: "border-slate-200",
-        cta: "Get Sim" 
+        cta: "Get Sim",
+        stripePriceId: "price_sim_only_test"
     },
     { 
         name: "The Phone", 
@@ -17,14 +18,16 @@ const tiers: PricingTier[] = [
         features: ["DoomBlocker Handset", "Charger & Case", "1 Year Warranty", "30 Day Money Back"], 
         color: "border-slate-900",
         cta: "Order Device",
-        popular: true
+        popular: true,
+        stripePriceId: "price_device_test"
     },
     { 
         name: "Bundle", 
         price: "$299", 
         features: ["2x DoomBlocker Phones", "Family Dashboard", "Priority Support", "Lost Phone Insurance", "Save $100"], 
         color: "border-slate-200",
-        cta: "Get Bundle" 
+        cta: "Get Bundle",
+        stripePriceId: "price_bundle_test"
     }
 ];
 
