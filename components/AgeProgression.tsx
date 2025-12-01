@@ -5,33 +5,33 @@ const AgeProgression = () => {
   const [activeTab, setActiveTab] = useState<'starter' | 'pro'>('starter');
 
   return (
-    <section id="how-it-works" className="py-40 bg-slate-50 border-t border-slate-100">
+    <section id="how-it-works" className="py-40 bg-slate-50 dark:bg-slate-950 border-t border-slate-100 dark:border-white/5 transition-colors duration-500">
         <div className="container mx-auto px-6">
             <div className="text-center mb-20">
-                <h2 className="text-4xl md:text-5xl font-heading font-semibold text-slate-900 mb-6 tracking-tight">
+                <h2 className="text-4xl md:text-5xl font-heading font-semibold text-slate-900 dark:text-white mb-6 tracking-tight transition-colors">
                     Level Up Responsibly
                 </h2>
-                <p className="text-slate-500 text-xl max-w-xl mx-auto font-medium">
+                <p className="text-slate-500 dark:text-slate-400 text-xl max-w-xl mx-auto font-medium transition-colors">
                     Start strict. Loosen the leash as they prove they can handle it.
                 </p>
             </div>
 
             {/* Toggle */}
             <div className="flex justify-center mb-20">
-                <div className="bg-white p-1.5 rounded-full flex relative shadow-soft border border-slate-200">
+                <div className="bg-white dark:bg-slate-900 p-1.5 rounded-full flex relative shadow-soft border border-slate-200 dark:border-white/10 transition-colors">
                     <div 
-                        className={`absolute top-1.5 bottom-1.5 w-[140px] bg-slate-900 rounded-full shadow-lg transition-all duration-500 ease-spring ${activeTab === 'starter' ? 'left-1.5' : 'left-[146px]'}`}
+                        className={`absolute top-1.5 bottom-1.5 w-[140px] bg-slate-900 dark:bg-white rounded-full shadow-lg transition-all duration-500 ease-spring ${activeTab === 'starter' ? 'left-1.5' : 'left-[146px]'}`}
                     ></div>
                     
                     <button 
                         onClick={() => setActiveTab('starter')}
-                        className={`w-[140px] py-3 rounded-full text-[13px] font-bold uppercase tracking-wider transition-colors z-10 relative ${activeTab === 'starter' ? 'text-white' : 'text-slate-500 hover:text-slate-900'}`}
+                        className={`w-[140px] py-3 rounded-full text-[13px] font-bold uppercase tracking-wider transition-colors z-10 relative ${activeTab === 'starter' ? 'text-white dark:text-slate-900' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'}`}
                     >
                         Ages 8-12
                     </button>
                     <button 
                         onClick={() => setActiveTab('pro')}
-                        className={`w-[140px] py-3 rounded-full text-[13px] font-bold uppercase tracking-wider transition-colors z-10 relative ${activeTab === 'pro' ? 'text-white' : 'text-slate-500 hover:text-slate-900'}`}
+                        className={`w-[140px] py-3 rounded-full text-[13px] font-bold uppercase tracking-wider transition-colors z-10 relative ${activeTab === 'pro' ? 'text-white dark:text-slate-900' : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'}`}
                     >
                         Ages 13-16
                     </button>
@@ -39,10 +39,10 @@ const AgeProgression = () => {
             </div>
 
             {/* Content Card */}
-            <div className="max-w-6xl mx-auto bg-white rounded-[40px] shadow-soft border border-slate-200 overflow-hidden flex flex-col md:flex-row min-h-[600px]">
+            <div className="max-w-6xl mx-auto bg-white dark:bg-slate-900 rounded-[40px] shadow-soft border border-slate-200 dark:border-white/5 overflow-hidden flex flex-col md:flex-row min-h-[600px] transition-colors duration-500">
                 
                 {/* Visual Half - High Fidelity UI Simulator */}
-                <div className={`w-full md:w-5/12 p-12 flex flex-col items-center justify-center relative transition-colors duration-700 border-r border-slate-100 ${activeTab === 'starter' ? 'bg-slate-50' : 'bg-slate-100'}`}>
+                <div className={`w-full md:w-5/12 p-12 flex flex-col items-center justify-center relative transition-colors duration-700 border-r border-slate-100 dark:border-white/5 ${activeTab === 'starter' ? 'bg-slate-50 dark:bg-slate-800/50' : 'bg-slate-100 dark:bg-slate-800'}`}>
                      
                      {/* Phone Physical Body (High Fidelity) */}
                      <div className="relative w-[280px] h-[580px] bg-[#0a0a0a] rounded-[48px] shadow-bezel transition-transform duration-700 ease-spring hover:scale-[1.01] overflow-visible z-10">
@@ -159,8 +159,8 @@ const AgeProgression = () => {
                                  </div>
                              </div>
 
-                             {/* Home Indicator */}
-                             <div className="absolute bottom-2 w-32 h-1 bg-white/50 rounded-full backdrop-blur-md"></div>
+                             {/* Home Indicator - Centered */}
+                             <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-32 h-1 bg-white/50 rounded-full backdrop-blur-md"></div>
                          </div>
                      </div>
                 </div>
@@ -170,22 +170,22 @@ const AgeProgression = () => {
                     <div className="animate-reveal">
                         <div className="flex items-center gap-3 mb-6">
                              <div className={`w-2 h-2 rounded-full ${activeTab === 'starter' ? 'bg-accent-primary' : 'bg-emerald-500'}`}></div>
-                             <span className="text-xs font-mono font-bold uppercase tracking-widest text-slate-400">
+                             <span className="text-xs font-mono font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
                                 Model: DB-01X / {activeTab === 'starter' ? 'LOCKED' : 'UNLOCKED'}
                             </span>
                         </div>
                         
-                        <h3 className="text-4xl font-heading font-bold text-slate-900 mb-6 tracking-tight">
+                        <h3 className="text-4xl font-heading font-bold text-slate-900 dark:text-white mb-6 tracking-tight transition-colors">
                             {activeTab === 'starter' ? 'Lockdown Mode' : 'Controlled Independence'}
                         </h3>
-                        <p className="text-slate-500 text-lg leading-relaxed font-medium mb-12 max-w-md">
+                        <p className="text-slate-500 dark:text-slate-400 text-lg leading-relaxed font-medium mb-12 max-w-md transition-colors">
                             {activeTab === 'starter' 
                                 ? 'Pure communication. Zero distractions. The digital training wheels for peace of mind.' 
                                 : 'Unlock essential utilities like Spotify, Maps, and Calculator. Social media remains hardware-blocked.'}
                         </p>
                         
                         {/* Technical Spec List */}
-                        <div className="space-y-0 border-t border-slate-100">
+                        <div className="space-y-0 border-t border-slate-100 dark:border-white/10 transition-colors">
                             {[
                                 activeTab === 'starter' ? 'Calling & Texting Only' : 'Wikipedia Access',
                                 activeTab === 'starter' ? 'No Internet Browser' : 'Music & Maps',
@@ -193,8 +193,8 @@ const AgeProgression = () => {
                                 activeTab === 'starter' ? 'Bedtime: 8PM Hard Lock' : 'Flexible Curfew',
                                 'GPS Tracking Always On',
                             ].map((feat, i) => (
-                                <div key={i} className="flex items-center justify-between py-4 border-b border-slate-100 group">
-                                    <span className="text-[15px] font-semibold text-slate-700 group-hover:text-slate-900 transition-colors">{feat}</span>
+                                <div key={i} className="flex items-center justify-between py-4 border-b border-slate-100 dark:border-white/10 group">
+                                    <span className="text-[15px] font-semibold text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white transition-colors">{feat}</span>
                                     <div className={`p-1 rounded transition-colors ${activeTab === 'starter' ? 'text-accent-primary' : 'text-emerald-500'}`}>
                                          <Check className="w-4 h-4" />
                                     </div>

@@ -60,7 +60,7 @@ export default function App() {
 
   return (
     <>
-      <div className="min-h-screen font-sans text-slate-900 selection:bg-accent-primary selection:text-white">
+      <div className="min-h-screen font-sans text-slate-900 dark:text-white dark:bg-slate-950 selection:bg-accent-primary selection:text-white transition-colors duration-500">
         <Navbar />
         <main className="pt-24 pb-0">
           <Hero />
@@ -70,7 +70,7 @@ export default function App() {
           <AgeProgression />
           {/* Minimalist divider */}
           <div className="container mx-auto px-6 reveal-on-scroll">
-             <div className="w-full h-px bg-slate-200/60 my-24"></div>
+             <div className="w-full h-px bg-slate-200/60 dark:bg-white/10 my-24 transition-colors duration-500"></div>
           </div>
           <Testimonials />
           <Pricing />

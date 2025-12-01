@@ -44,7 +44,7 @@ const Hero = () => {
 
   return (
     <section 
-        className="relative pt-40 pb-32 overflow-hidden bg-[#FBFBFD]" 
+        className="relative pt-40 pb-32 overflow-hidden bg-[#FBFBFD] dark:bg-slate-950 transition-colors duration-500" 
         onMouseMove={handleInput} 
         onMouseLeave={handleEnd}
         onTouchMove={handleInput}
@@ -54,27 +54,27 @@ const Hero = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center max-w-4xl mx-auto mb-24">
             
-            <div className="reveal-on-scroll inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full bg-white border border-slate-200/60 shadow-sm backdrop-blur-sm hover:scale-105 transition-transform duration-500 ease-spring cursor-default">
+            <div className="reveal-on-scroll inline-flex items-center gap-2 mb-8 px-4 py-1.5 rounded-full bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-white/10 shadow-sm backdrop-blur-sm hover:scale-105 transition-all duration-500 ease-spring cursor-default">
                 <span className="relative flex h-2 w-2">
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-slate-500">Tamper-Proof OS</span>
+                <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-slate-500 dark:text-slate-400">Tamper-Proof OS</span>
             </div>
 
-            <h1 className="reveal-on-scroll text-6xl md:text-8xl font-heading font-bold text-slate-900 leading-[0.95] mb-8 tracking-tighter delay-100">
+            <h1 className="reveal-on-scroll text-6xl md:text-8xl font-heading font-bold text-slate-900 dark:text-white leading-[0.95] mb-8 tracking-tighter delay-100 transition-colors">
               Kill The <br/>
               <span className="text-accent-primary">Addiction.</span> <br/>
-              <span className="text-slate-400">Keep The Kid.</span>
+              <span className="text-slate-400 dark:text-slate-500">Keep The Kid.</span>
             </h1>
 
-            <p className="reveal-on-scroll text-xl md:text-2xl text-slate-500 mb-12 leading-relaxed max-w-2xl font-medium tracking-tight delay-200">
+            <p className="reveal-on-scroll text-xl md:text-2xl text-slate-500 dark:text-slate-400 mb-12 leading-relaxed max-w-2xl font-medium tracking-tight delay-200 transition-colors">
                The only phone that physically blocks TikTok, Reels, and infinite scrolling while keeping family connection alive.
             </p>
 
             <div className="reveal-on-scroll flex flex-col sm:flex-row gap-4 items-center delay-300">
               <button 
                 onClick={scrollToPricing}
-                className="bg-slate-900 text-white px-10 py-4 rounded-full text-[15px] font-bold hover:bg-black transition-all btn-press shadow-2xl shadow-slate-900/20"
+                className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-10 py-4 rounded-full text-[15px] font-bold hover:bg-black dark:hover:bg-slate-200 transition-all btn-press shadow-2xl shadow-slate-900/20 dark:shadow-white/5"
               >
                 Protect Your Kid
               </button>
@@ -89,11 +89,11 @@ const Hero = () => {
                             key={i} 
                             src={src} 
                             alt={`Parent ${i+1}`}
-                            className="w-9 h-9 rounded-full border-2 border-white object-cover shadow-sm hover:scale-110 hover:z-10 transition-transform duration-300"
+                            className="w-9 h-9 rounded-full border-2 border-white dark:border-slate-900 object-cover shadow-sm hover:scale-110 hover:z-10 transition-transform duration-300"
                         />
                     ))}
                  </div>
-                 <span className="text-sm font-bold text-slate-600 pl-2">Trusted by 10,000+ Parents</span>
+                 <span className="text-sm font-bold text-slate-600 dark:text-slate-400 pl-2">Trusted by 10,000+ Parents</span>
               </div>
             </div>
         </div>

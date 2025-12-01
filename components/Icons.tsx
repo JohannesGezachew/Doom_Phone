@@ -64,6 +64,20 @@ export const Moon: React.FC<IconProps> = ({ className, ...props }) => (
   </svg>
 );
 
+export const Sun: React.FC<IconProps> = ({ className, ...props }) => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}>
+    <circle cx="12" cy="12" r="5" />
+    <line x1="12" y1="1" x2="12" y2="3" />
+    <line x1="12" y1="21" x2="12" y2="23" />
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+    <line x1="1" y1="12" x2="3" y2="12" />
+    <line x1="21" y1="12" x2="23" y2="12" />
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+  </svg>
+);
+
 export const ShieldCheck: React.FC<IconProps> = ({ className, ...props }) => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className} {...props}>
     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -150,13 +164,13 @@ export const AppCalculator: React.FC<any> = ({ className, ...props }) => (
   />
 );
 
+// Notion Icon - Using raw SVG path for perfect scaling and contrast on black background
 export const AppNotion: React.FC<any> = ({ className, ...props }) => (
-  <img 
-    src="https://img.icons8.com/?size=100&id=uVERmCBZZACL&format=png&color=000000" 
-    alt="Notion"
-    className={`${className} object-contain rounded-[14px]`}
-    {...props}
-  />
+  <div className={`${className} bg-black rounded-[14px] flex items-center justify-center`} {...props}>
+      <svg viewBox="0 0 24 24" fill="white" className="w-[85%] h-[85%]">
+        <path d="M4.021 21.996c-.464.096-1.428.161-1.428-1.077V6.015c0-1.03.655-1.503 1.536-1.536h3.633c.697 0 1.255.43 1.58.977l8.28 12.502V6.155c0-1.116.634-1.631 1.631-1.631.902 0 1.76.086 1.76 1.052v15.222c0 1.137-.772 1.502-1.653 1.535h-3.696c-.72 0-1.127-.472-1.439-.902l-8.61-12.878v11.75c0 1.127-.644 1.58-1.595 1.693zM1.861 6.305c0-1.299.88-2.266 2.3-2.266h2.72c1.373 0 2.221.902 2.221 2.266v.838c0 1.341-.838 2.221-2.2 2.221H4.116c-1.374 0-2.255-.902-2.255-2.265V6.305z"/>
+      </svg>
+  </div>
 );
 
 export const AppSpotify: React.FC<any> = ({ className, ...props }) => (
@@ -168,11 +182,11 @@ export const AppSpotify: React.FC<any> = ({ className, ...props }) => (
   />
 );
 
-// Fixed Google Maps to appear as white tile with pin, consistent with iOS icon style
+// Fixed Google Maps to use correct Maps icon asset
 export const AppGoogleMaps: React.FC<any> = ({ className, ...props }) => (
-  <div className={`${className} bg-white rounded-[14px] flex items-center justify-center p-2.5`} {...props}>
+  <div className={`${className} bg-white rounded-[14px] flex items-center justify-center p-2`} {...props}>
       <img 
-        src="https://img.icons8.com/?size=100&id=16713&format=png&color=000000" 
+        src="https://img.icons8.com/color/480/google-maps-new.png" 
         alt="Google Maps"
         className="w-full h-full object-contain"
       />
